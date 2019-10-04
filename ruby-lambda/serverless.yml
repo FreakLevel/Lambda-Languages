@@ -1,16 +1,3 @@
-# Welcome to Serverless!
-#
-# This file is the main config file for your service.
-# It's very minimal at this point and uses default values.
-# You can always add more config options for more control.
-# We've included some commented out config examples here.
-# Just uncomment any of them to get that config option.
-#
-# For full config options, check the docs:
-#    docs.serverless.com
-#
-# Happy Coding!
-
 service: ruby-lambda
 # app and org for use with dashboard.serverless.com
 app: ruby-lambda
@@ -25,9 +12,10 @@ provider:
   runtime: ruby2.5
 
 # you can overwrite defaults here
-#  stage: dev
-#  region: us-east-1
-
+stage: dev
+region: us-east-2
+memorySize: 192
+timeout: 10
 # you can add statements to the Lambda function's IAM Role here
 #  iamRoleStatements:
 #    - Effect: "Allow"
@@ -58,8 +46,8 @@ provider:
 #    - exclude-me-dir/**
 
 functions:
-  hello:
-    handler: handler.hello
+  product:
+    edit: app.functions.product_handler.Lambda::ProductHandler.edit
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
